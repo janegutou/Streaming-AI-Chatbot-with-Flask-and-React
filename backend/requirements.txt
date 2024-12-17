@@ -1,1 +1,6 @@
-Flask
+flask
+flask-cors
+python-dotenv
+langchain
+langchain-core
+langchain-openai

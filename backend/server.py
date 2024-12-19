@@ -58,22 +58,17 @@ def stream():
 
 def generate_response(question, session_id): 
     
+    # generate a stream of responses using langchain (simply replace the invoke with stream)
     chat_chain = get_chat_chain()
-    stream = chat_chain.stream({"question": question}, config={"configurable": {"session_id": session_id}}) # generate a stream of responses using langchain (simply replace the invoke with stream)
+    stream = chat_chain.stream({"question": question}, config={"configurable": {"session_id": session_id}}) 
 
     # reformat stream to event-stream format
     for chunk in stream:
         chunk = chunk.replace("\n", "<br>")
         if chunk.strip():
-            #print(chunk)
-            time.sleep(.02)
+            time.sleep(.02) # can remove the sleep, just for demo the words are printed one by one more clearly
             yield f"data: {chunk}\n\n"
     yield "data: [DONE]\n\n" 
-
-def get_session_history(session_id):
-    if session_id not in store:
-        store[session_id] = InMemoryChatMessageHistory()
-    return store[session_id]
 
 def get_chat_chain():
     
@@ -100,6 +95,10 @@ def get_chat_chain():
 
     return chain_with_history
 
+def get_session_history(session_id):
+    if session_id not in store:
+        store[session_id] = InMemoryChatMessageHistory()
+    return store[session_id]
 
 if __name__ == '__main__':
     app.run(debug=True)

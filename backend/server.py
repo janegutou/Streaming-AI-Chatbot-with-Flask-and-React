@@ -88,7 +88,7 @@ def get_chat_chain():
         [
             (
                 "system",
-                "You are an assistant who can help analysing customer service data. Use the following pieces of retrieved context to answer the question. Provide your response in English only. \n\n<context>\n{context}\n<context>\n"
+                "You are a helpful assistant. Answer all questions to the best of your ability."
             ),
             MessagesPlaceholder(variable_name="history"),
             ("human", "{question}"),

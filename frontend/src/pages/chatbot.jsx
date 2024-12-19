@@ -11,9 +11,7 @@ const Chatbot = () => {
   const [sessionId, setSessionId] = useState('');
   const chatEndRef = useRef(null);
 
-  const apiUrl = import.meta.env.VITE_API_URL;
-
-  // initialize session_id when the app loads
+   // initialize session_id when the app loads
   useEffect(() => {
     const initiateSession = async () => {
       try {
@@ -40,7 +38,7 @@ const Chatbot = () => {
   // request API to refresh session when want to start a new chat
   const refreshSession = async () => {
     try {
-      const response = await fetch(`${apiUrl}/api/refresh_session`, {
+      const response = await fetch('http://127.0.0.1:5000/api/refresh_session', {
         method: 'POST',
       });
       if (!response.ok) {
@@ -70,7 +68,7 @@ const Chatbot = () => {
       { question: question, answer: '' }, 
     ]);
 
-    const eventSource = new EventSource(`${apiUrl}/api/stream?session_id=${sessionId}&question=${question}`); // sending parameters to the API endpoint in the URL
+    const eventSource = new EventSource(`http://127.0.0.1:5000/api/stream?session_id=${sessionId}&question=${question}`); // sending parameters to the API endpoint in the URL
 
     eventSource.onmessage = (event) => {
       if (event.data === '[DONE]') {

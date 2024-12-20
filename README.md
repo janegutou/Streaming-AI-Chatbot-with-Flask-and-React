@@ -2,8 +2,6 @@
 
 A sandbox chatbot application that delivers treaming AI responses, similar to the ChatGPT interface. Built with a python Flask backend and a React Vite frontend.
 
----
-
 ## Features
 
 - **Streaming Responses**: Real-time AI responses delivered progressively to enhance user experience.
@@ -11,13 +9,10 @@ A sandbox chatbot application that delivers treaming AI responses, similar to th
 - **Python Flask Backend**: Leveraging Flask to handle API requests and responses.
 - **ChatGPT Model**: Using the ChatGPT model to generate responses in real-time.
 
----
-
 ## Demo
 
-![App Demo](./frontend/public/demo.gif)
+![App Demo](https://github.com/janegutou/Streaming-AI-Chatbot-with-Flask-and-React/blob/main/frontend/public/demo.gif)
 
----
 
 ## Project Structure
 
@@ -40,8 +35,6 @@ Streaming-AI-Chatbot-with-Flask-and-React
 ├── README.md
 └── LICENSE
 ```
-
----
 
 ## Installation and Setup
 
@@ -87,7 +80,6 @@ OPENAI_API_KEY=<your_openai_api_key>
 
 Open your browser and go to `http://localhost:5173` to access the chatbot interface.
 
----
 
 ## How Streaming Works
 
@@ -100,5 +92,3 @@ Backend:
 - Generate a stream of responses using langchain.
 - Reformat the stream to adapt to text/event-stream MIME type.
 - __check more details in backend/server.py__
-
----

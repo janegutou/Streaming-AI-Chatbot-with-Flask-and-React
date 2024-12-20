@@ -100,7 +100,7 @@ const Chatbot = () => {
     
   
   return (
-    <div className='flex flex-col h-screen bg-gray-50'>
+    <div className='flex flex-col h-screen bg-[#b3b3b3]'>
       <header className='p-8'>
         <h1 className="text-2xl font-bold mb-4 text-gray-600">Generative AI ChatBot with Streaming Response</h1>
         <hr className="border-t border-gray-300 mb-2" />
@@ -144,9 +144,9 @@ const Chatbot = () => {
                   {chatHistory.map((chat, index) => (
                     <div key={index} className="mb-2">
                       <div className="text-blue-600 font-semibold">You:</div>
-                      <div className="p-2 mt-1 bg-blue-50 rounded-md">{chat.question}</div>
-                      <div className="text-gray-600 font-semibold mt-2">AI:</div>
-                      <div className="p-2 mt-1 bg-gray-100 rounded-md">
+                      <div className="p-2 mt-1 border-gray-200 border rounded-md">{chat.question}</div>
+                      <div className="text-gray-600 font-semibold mt-3">AI:</div>
+                      <div className="p-2 mt-1 rounded-md">
                         {isStreaming && index === chatHistory.length - 1 ? (
                           <>
                             {streamingAnswer ? (

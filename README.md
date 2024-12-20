@@ -86,9 +86,9 @@ Open your browser and go to `http://localhost:5173` to access the chatbot interf
 Frontend:
 - Sends a request to backend api endpoint (api/stream) using EventSource.
 - Manages the streaming response incrementally and displays it in webpage with real-time markdown formatting.
-- __check more details in frontend/src/pages/chatbot.jsx__
+- _check more details in frontend/src/pages/chatbot.jsx_
 
 Backend:
 - Generate a stream of responses using langchain.
 - Reformat the stream to adapt to text/event-stream MIME type.
-- __check more details in backend/server.py__
+- _check more details in backend/server.py_
